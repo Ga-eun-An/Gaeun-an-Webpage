@@ -145,8 +145,7 @@ window.addEventListener("click", (e) => {
         dragText.style.color = dragColors[dragColorIndex];
         if (flexText && idaText) {
           flexText.classList.add("drag-wrap");
-          flexText.innerHTML = `<span class="drag-word">${dragWordChanges[dragColorIndex]}</span><span class="drag-ida">이다.</span>`;
-          flexText.style.display = "flex";
+flexText.innerHTML = `<div class="center-group"><span class="drag-word">${dragWordChanges[dragColorIndex]}</span><span class="drag-ida">이다.</span></div>`;          flexText.style.display = "flex";
           idaText.style.display = "none";
         }
         dragColorIndex++;
@@ -196,8 +195,7 @@ window.addEventListener("click", (e) => {
 
           clickText.style.color = clickColors[colorIndex];
           if (strengthText) {
-            strengthText.innerHTML = `<div class="drag-group"><span class="english-word">${wordChanges[colorIndex]}</span><span class="ida-word">이다.</span></div>`;
-          }
+strengthText.innerHTML = `<div class="center-group"><span class="english-word">${wordChanges[colorIndex]}</span><span class="ida-word">이다.</span></div>`;          }
 
           colorIndex++;
           if (colorIndex >= wordChanges.length) {

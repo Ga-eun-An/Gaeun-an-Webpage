@@ -127,3 +127,34 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* 1. 단어들을 감싸는 부모 박스를 화면 정중앙에 고정 */
+.center-group {
+    position: fixed !important;
+    left: 50% !important;
+    top: 64% !important;
+    transform: translateX(-50%) !important; /* 가로 기준 정중앙 */
+    
+    display: flex !important; /* 단어들을 가로로 나열 */
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: baseline !important; /* 글자 밑선 맞춤 */
+    gap: 20px !important; /* 단어 사이 간격 (원하는 만큼 조절) */
+    
+    width: max-content !important; /* 내용물 너비만큼 박스 크기 설정 */
+    white-space: nowrap !important;
+    z-index: 9999 !important;
+}
+
+/* 2. 개별 단어들의 fixed 설정을 해제해서 겹치지 않게 함 */
+.center-group .text, 
+.center-group .drag-word, 
+.center-group .english-word, 
+.center-group .drag-ida, 
+.center-group .ida-word {
+    position: relative !important; /* 화면 고정이 아니라 부모 박스 안에서의 위치 */
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: inline-block !important;
+}

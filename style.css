@@ -1,0 +1,129 @@
+/* 기본 초기화 */
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+  font-family: "Pretendard", sans-serif;
+}
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  box-sizing: border-box;
+}
+
+.stage {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  width: 1728px;
+  height: 1117px;
+  transform-origin: top left;
+  background-image: url("bg2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 공통 텍스트 스타일 */
+.text {
+  position: absolute;
+  color: #00FFFB;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1;
+  opacity: 1;
+}
+
+/* ===================================================
+   [중요] 수정 1, 3번 해결: 완전 중앙 정렬 시스템
+   이 클래스가 적용되면 기존의 모든 좌표(left, top)를 무시하고 
+   화면 정중앙에 글자를 배치합니다.
+====================================================== */
+.center-group {
+  position: absolute !important;
+  left: 0 !important;
+  width: 1728px !important; /* 컨테이너 너비 고정 */
+  top: 64% !important; /* 세로 위치 */
+  
+  display: flex !important;
+  justify-content: center !important; /* 가로 중앙 */
+  align-items: baseline !important; /* 글자 밑선 맞춤 */
+  gap: 60px !important; /* [수정 2번] 겹침 방지 간격 */
+  
+  transform: none !important;
+  margin: 0 !important;
+}
+
+/* 개별 단어 디자인 */
+.drag-word, .english-word {
+  font-size: 230px !important;
+  color: #00FFFB !important;
+}
+
+.drag-ida, .ida-word {
+  font-size: 300px !important;
+  color: #00FFFB !important;
+}
+
+/* ===================================================
+   개별 씬 위치 좌표 (기존 설정 유지 및 미세 조정)
+====================================================== */
+
+/* SCENE 1 & RESET SCENE 인트로용 */
+.t0 { top: 2.51%; left: 6.60%; font-size: 230px; letter-spacing: 27.6px; }
+.t1 { top: 2.51%; left: 40.97%; font-size: 230px; letter-spacing: 27.6px; }
+.t2 { top: 22%; left: 17.36%; font-size: 475px; }
+.t3 { top: 36%; left: 65%; font-size: 300px; }
+.t4 { top: 64%; left: 5.96%; font-size: 300px; }
+.t5 { top: 64%; left: 46.12%; font-size: 300px; }
+
+/* "드래그" 위치 */
+.drag-scene.t2 {
+  top: 22%;
+  left: 5% !important; /* 👈 6%에서 10%로 옮겨서 여유 공간 확보 */
+  font-size: 475px;
+}
+
+/* "드래그는"에서 "는" 위치 수정 */
+.drag-scene.t3 { top: 34% !important; left: 79%; font-size: 300px; }
+
+/* SCENE 2 */
+.s0 { top: 2.51%; left: 8%; font-size: 365px; }
+.s1 { top: 2.51%; left: 45%; font-size: 365px; }
+.s2 { top: 15%; left: 82%; font-size: 230px; }
+.s3 { top: 35%; left: 8%; font-size: 573px; }
+.s4 { top: 40%; left: 37%; font-size: 250px; }
+.s5 { top: 64%; left: 37%; font-size: 250px; letter-spacing: 0.1em; }
+
+/* RULE SCENE */
+.rule-0 { top: 2%; left: 4%; font-size: 430px; color: #00FBFF; z-index: 5; }
+.rule-1 { top: 4%; left: 52%; font-size: 200px; color: #FF00BF; z-index: 5; }
+.rule-2 { top: 4%; left: 74%; font-size: 200px; color: #00FBFF; z-index: 5; }
+.rule-3 { top: 24%; left: 50%; font-size: 200px; color: #00FF22; z-index: 5; }
+.rule-4 { top: 48%; left: 6%; font-size: 200px; color: #00FBFF; z-index: 5; }
+.rule-5 { top: 48%; left: 37%; font-size: 200px; color: #00FBFF; z-index: 5; }
+.rule-6 { top: 70%; left: 5%; font-size: 290px; color: #00FBFF; z-index: 5; }
+
+/* INTERACTION */
+.interaction-title {
+  position: absolute; top: 35%; left: 50%; transform: translateX(-50%);
+  font-size: 448.11px; line-height: 1; color: #E500FF; z-index: 10;
+}
+.interaction-text {
+  position: absolute; font-size: 40px; line-height: 1; color: #00FFFB;
+  pointer-events: none; transform: translate(-50%, -50%); z-index: 1;
+}
+
+/* 특별 스타일 */
+.drag-text {
+  background: linear-gradient(90deg, #00FF22, #FF00BF, #FFF200, #FF0004);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
